@@ -51,10 +51,14 @@ const AuthProvider = ({children}) => {
         signInWithPopup(auth, provider)
     }
 
+    const githubSignIn =()=>{
+        signInWithPopup(auth, provider)
+    }
+
     
   
 
-    const authinfo ={chefs,createUser,signIn,logOut,loading,user,googleSignIn}
+    const authinfo ={chefs,createUser,signIn,logOut,loading,user,googleSignIn,githubSignIn}
     return (
         <AuthContex.Provider value={authinfo}>
             {children}

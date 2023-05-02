@@ -4,7 +4,7 @@ import { AuthContex } from '../../provider/AuthProvider';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 
 const Login = () => {
-    const {signIn,googleSignIn}= useContext(AuthContex)
+    const {signIn,googleSignIn,githubSignIn}= useContext(AuthContex)
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";
@@ -48,7 +48,28 @@ const Login = () => {
           
           });
     }
-
+const handelGithub=()=>{
+    githubSignIn()
+    .then((result) => {
+        // This gives you a GitHub Access Token. You can use it to access the GitHub API.
+        const credential = GithubAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+    
+        // The signed-in user info.
+        const user = result.user;
+        // IdP data available using getAdditionalUserInfo(result)
+        // ...
+      }).catch((error) => {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // The email of the user's account used.
+        const email = error.customData.email;
+        // The AuthCredential type that was used.
+        const credential = GithubAuthProvider.credentialFromError(error);
+        // ...
+      });
+}
     
     return (
         <div>
@@ -79,13 +100,18 @@ const Login = () => {
     </div>
  
 
-    <FaGithub onClick={handelGoogle} ></FaGithub> <FaGoogle></FaGoogle>
+   <div>
+    <div className='text-center'>
+        <h1>Signin with Social Account</h1>
+    </div>
+    <div className='flex mx-32 gap-3'> <FaGithub onClick={handelGithub} className='text-3xl' ></FaGithub> <FaGoogle onClick={handelGoogle} className='text-3xl'></FaGoogle></div>
+   </div>
     
 
     
 
     <div >
-        <p className='mt-32'>If you new this site plz <Link to='/ragister'><button className="btn btn-link"> ragister </button></Link></p>
+        <p >If you new this site plz <Link to='/ragister'><button className="btn btn-link"> ragister </button></Link></p>
     </div>
     
    
