@@ -13,12 +13,14 @@ import AuthProvider from './provider/AuthProvider.jsx';
 import Login from './Layout/login/Login.jsx';
 import Ragister from './Layout/login/Ragister.jsx';
 import PrivateRoute from './Layout/login/PrivateRoute.jsx';
+import Error from './pages/home/Error.jsx';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <Error />,
     children: [
       {
         path: "/",
