@@ -41,15 +41,18 @@ const Navbar = () => {
       <li><a>Blog</a></li>
     </ul>
   </div>
+  {/* <div className="tooltip" data-tip="hello">
+  <button className="btn">Hover me</button>
+</div> */}
  
   <div className="navbar-end" >
     
        {
-        user && <div className="avatar mr-4">
-        <div className="w-12 rounded-full">
-          <img src={user.photoURL} />
+        user && <label className=" avatar tooltip tooltip-bottom mr-4" data-tip={user.displayName} >
+        <div className="w-10 rounded-full " >
+            <img src={ user.photoURL } />
         </div>
-      </div>
+    </label>
       }
     
     

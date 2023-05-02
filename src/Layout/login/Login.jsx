@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContex } from '../../provider/AuthProvider';
+import { FaGithub, FaGoogle } from 'react-icons/fa';
 
 const Login = () => {
-    const {signIn}= useContext(AuthContex)
+    const {signIn,googleSignIn}= useContext(AuthContex)
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";
@@ -29,6 +30,26 @@ const Login = () => {
           });
         
     }
+
+    const handelGoogle =()=>{
+        googleSignIn()
+        .then((result) => {
+           
+            const user = result.user;
+            console.log(user)
+            navigate(from, { replace: true })
+            
+          }).catch((error) => {
+           
+            const errorCode = error.code;
+            const errorMessage = error.message;
+           
+            const email = error.customData.email;
+          
+          });
+    }
+
+    
     return (
         <div>
         <form onSubmit={handelLogin} className="hero min-h-screen bg-base-200">
@@ -36,6 +57,7 @@ const Login = () => {
 <div className="text-center ">
   <h1 className="text-5xl font-bold">Login now!</h1>
   <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+  
 </div>
 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
   <div className="card-body">
@@ -55,13 +77,24 @@ const Login = () => {
     <div className="form-control mt-6">
       <button className="btn btn-primary">Login</button>
     </div>
-    <div>
-        <p>If you new this site plz <Link to='/ragister'><button className="btn btn-link"> ragister </button></Link></p>
+ 
+
+    <FaGithub onClick={handelGoogle} ></FaGithub> <FaGoogle></FaGoogle>
+    
+
+    
+
+    <div >
+        <p className='mt-32'>If you new this site plz <Link to='/ragister'><button className="btn btn-link"> ragister </button></Link></p>
     </div>
+    
+   
   </div>
 </div>
 </div>
 </form>
+
+
     </div>
     );
 };
