@@ -1,7 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { FaHeart } from "react-icons/fa";
 
 const ChefInfo = ({chef}) => {
-    const {name,experience,picture,recipes} = chef
+    const {name,experience,picture,recipes,id} = chef;
     return (
         <div className='md:mt-16 md:px-14 lg:mt-16 lg:px-14 mt-5'>
            
@@ -13,8 +15,9 @@ const ChefInfo = ({chef}) => {
     <h2 className="card-title">{name}</h2>
     <p>Experience:{experience} years</p>
     <p>Total Recipes:{recipes} items</p>
+    <p><FaHeart></FaHeart></p>
     <div className="card-actions">
-      <button className="btn btn-primary">Buy Now</button>
+      <Link to={`/chefs/${chef.id}`}><button className="btn btn-primary">details</button></Link>
     </div>
   </div>
 </div>
