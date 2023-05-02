@@ -1,6 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { AuthContex } from '../../provider/AuthProvider';
+
+
 
 const Navbar = () => {
+  const {user,logOut} = useContext(AuthContex)
+  console.log(user)
+ 
+    const handelLogout=()=>{
+        logOut()
+        .then(() => {
+          // Sign-out successful.
+        }).catch((error) => {
+          // An error happened.
+        });
+        
+    }
     return (
         <div >
            <div className="navbar bg-neutral-600 text-white">
@@ -25,9 +41,25 @@ const Navbar = () => {
       <li><a>Blog</a></li>
     </ul>
   </div>
-  <div className="navbar-end">
-    <a className="btn">Login</a>
+ 
+  <div className="navbar-end" >
+    
+       {
+        user && <div className="avatar mr-4">
+        <div className="w-12 rounded-full">
+          <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+        </div>
+      </div>
+      }
+    
+    
+    {
+      user ?<Link ><a className="btn" onClick={handelLogout}>Logout</a></Link>:
+  
+      <Link to='/login' ><a className="btn">Login</a></Link>
+    }
   </div>
+  
 </div>
         </div>
     );
