@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContex } from '../../provider/AuthProvider';
+import { updateProfile } from 'firebase/auth';
 
 const Ragister = () => {
     const {createUser} = useContext(AuthContex)
@@ -19,6 +20,7 @@ const Ragister = () => {
             // Signed in 
             const createUser = result.user;
             console.log(createUser)
+            updateUserData(result.user,name,photo)
             // ...
           })
           .catch((error) => {
@@ -26,6 +28,19 @@ const Ragister = () => {
             const errorMessage = error.message;
             console.log(errorMessage)
           });
+          const updateUserData=(user,name,photo)=>{
+            updateProfile(user,{
+                
+                displayName: name, photoURL: photo
+            })
+            .then(() => {
+                // Profile updated!
+                // ...
+              }).catch((error) => {
+                // An error occurred
+                // ...
+              });
+          }
     }
     return (
         <div>
