@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import aboutImage from '../../assets/top-view-table-full-delicious-food-composition_23-2149141352.avif';
 
-const AboutUsPage = () => {
+const About = () => {
   return (
     <div className="bg-gray-100 py-12">
       <div className="container mx-auto flex flex-wrap">
@@ -22,9 +22,7 @@ const AboutUsPage = () => {
             <p className="mb-4">
               We're committed to providing our users with the best possible experience, which is why we've made our website easy to use and navigate. You can browse our recipes by category, cuisine, or dietary restrictions, and save your favorites for later. Plus, our responsive design ensures that you can access our website from any device, anywhere in the world.
             </p>
-            <Link to="/contact" className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-              Contact Us
-            </Link>
+            
           </div>
         </div>
       </div>
@@ -32,4 +30,4 @@ const AboutUsPage = () => {
   );
 };
 
-export default AboutUsPage;
+export default About;

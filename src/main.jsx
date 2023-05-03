@@ -16,6 +16,7 @@ import PrivateRoute from './Layout/login/PrivateRoute.jsx';
 import Error from './pages/home/Error.jsx';
 import Blog from './pages/blog/Blog.jsx';
 import About from './pages/about/about.jsx';
+import Recipes from './pages/home/Recipes.jsx';
 
 
 const router = createBrowserRouter([
@@ -43,6 +44,11 @@ const router = createBrowserRouter([
       {
         path: "/about",
         element: <About></About>,
+      },
+      {
+        path: "/recipes",
+        element: <Recipes></Recipes>,
+        loader:()=>fetch('http://localhost:5000/newRecipes')
       },
      
       {

@@ -40,6 +40,7 @@ const Navbar = () => {
       
      <Link to='/blog'> <li><a>Blog</a></li></Link>
      <Link to='/about'> <li><a>About</a></li></Link>
+     <Link to='/recipes'> <li><a>New Recipes</a></li></Link>
     </ul>
   </div>
   {/* <div className="tooltip" data-tip="hello">
