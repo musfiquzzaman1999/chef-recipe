@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContex } from '../../provider/AuthProvider';
+import Active from './Active';
 
 
 
@@ -28,20 +29,20 @@ const Navbar = () => {
       <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 text-green-800">
       <Link to='/'> <li><a>Home</a></li></Link>
       
-      <Link to='/blog'> <li><a>Blog</a></li></Link>
-      <Link to='/about'> <li><a>About</a></li></Link>
-      <Link to='/recipes'> <li><a>New Recipes</a></li></Link>
+      <Active to='/blog'> <li><a>Blog</a></li></Active>
+      <Active to='/about'> <li><a>About</a></li></Active>
+      <Active to='/recipes'> <li><a>New Recipes</a></li></Active>
       </ul>
     </div>
     <a className="btn btn-ghost normal-case text-xl">Plateful</a>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
-     <Link to='/'> <li><a>Home</a></li></Link>
+     <Active to='/'> <li><a>Home</a></li></Active>
       
-     <Link to='/blog'> <li><a>Blog</a></li></Link>
-     <Link to='/about'> <li><a>About</a></li></Link>
-     <Link to='/recipes'> <li><a>New Recipes</a></li></Link>
+     <Active to='/blog'> <li><a>Blog</a></li></Active>
+     <Active to='/about'> <li><a>About</a></li></Active>
+     <Active to='/recipes'> <li><a>New Recipes</a></li></Active>
     </ul>
   </div>
   {/* <div className="tooltip" data-tip="hello">
