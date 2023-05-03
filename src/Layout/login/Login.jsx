@@ -38,12 +38,7 @@ const Login = () => {
             const errorMessage = error.message;
             console.log(errorMessage)
             setError(error.message)
-            // Swal.fire({
-            //     icon: 'error',
-            //     title: 'Oops...',
-            //     text: errorMessage,
-                
-            //   })
+           
           });
         
     }
@@ -136,7 +131,9 @@ const handelGithub=()=>{
     <div >
         <p >If you new this site plz <Link to='/ragister'><button className="btn btn-link"> ragister </button></Link></p>
     </div>
-    <p>{error}</p>
+    {
+       error && <p className='text-orange-800'>Plz provide valid information or password</p>
+    }
     
    
   </div>

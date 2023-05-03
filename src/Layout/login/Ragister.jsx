@@ -1,10 +1,11 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContex } from '../../provider/AuthProvider';
 import { updateProfile } from 'firebase/auth';
 
 const Ragister = () => {
     const {createUser,user} = useContext(AuthContex)
+    const [error,setError]=useState('');
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -36,6 +37,7 @@ const Ragister = () => {
             const errorCode = error.code;
             const errorMessage = error.message;
             console.log(errorMessage)
+            setError(errorMessage)
           });
           const updateUserData=(user,name,photo)=>{
             updateProfile(user,{
@@ -93,6 +95,9 @@ const Ragister = () => {
         <div>
         <p>Have Already An Account? <Link to='/login'><button className="btn btn-link"> login </button></Link></p>
     </div>
+    {
+       error && <p className='text-orange-800'>{error}</p>
+    }
       </div>
     </form>
   </div>
