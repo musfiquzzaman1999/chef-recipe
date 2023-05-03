@@ -14,6 +14,8 @@ import Login from './Layout/login/Login.jsx';
 import Ragister from './Layout/login/Ragister.jsx';
 import PrivateRoute from './Layout/login/PrivateRoute.jsx';
 import Error from './pages/home/Error.jsx';
+import Blog from './pages/blog/Blog.jsx';
+import About from './pages/about/about.jsx';
 
 
 const router = createBrowserRouter([
@@ -33,6 +35,14 @@ const router = createBrowserRouter([
       {
         path: "/ragister",
         element: <Ragister></Ragister>,
+      },
+      {
+        path: "/blog",
+        element: <Blog></Blog>,
+      },
+      {
+        path: "/about",
+        element: <About></About>,
       },
      
       {

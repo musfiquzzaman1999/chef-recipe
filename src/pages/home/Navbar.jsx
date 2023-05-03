@@ -38,7 +38,8 @@ const Navbar = () => {
     <ul className="menu menu-horizontal px-1">
      <Link to='/'> <li><a>Home</a></li></Link>
       
-      <li><a>Blog</a></li>
+     <Link to='/blog'> <li><a>Blog</a></li></Link>
+     <Link to='/about'> <li><a>About</a></li></Link>
     </ul>
   </div>
   {/* <div className="tooltip" data-tip="hello">
