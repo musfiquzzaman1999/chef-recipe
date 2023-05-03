@@ -1,12 +1,18 @@
 import React, { useContext } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContex } from '../../provider/AuthProvider';
 import { updateProfile } from 'firebase/auth';
 
 const Ragister = () => {
-    const {createUser} = useContext(AuthContex)
+    const {createUser,user} = useContext(AuthContex)
 
-    const location =useLocation();
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || "/";
+    if(user?.uid){
+        return <Navigate to={from}></Navigate>
+    }
     
 
     const handelRagister =(event)=>{

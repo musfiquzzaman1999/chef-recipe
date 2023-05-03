@@ -1,13 +1,26 @@
-import React from 'react';
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
+import React, { useState } from 'react';
 import { FaDownload } from 'react-icons/fa';
 
 const Blog = () => {
-    const [loader,setLoader]=(false)
+    const [loader,setLoader] = useState(false);
     const handelDownload=()=>{
         setLoader(true)
+        const capture =document.querySelector('.pdf');
+        html2canvas(capture)
+        .then((canvas)=>{
+            const imgData = canvas.toDataURL('img/png');
+            const doc =new jsPDF('p','mm','a4');
+            const componetWith = doc.internal.pageSize.getWidth();
+            const componentHight = doc.internal.pageSize.getHeight();
+            doc.addImage(imgData,'png',0,0,componetWith,componentHight);
+            setLoader(false);
+            doc.save ('receive.pdf');
+        })
     }
     return (
-        <div className='grid grid-cols-2  gap-4 ml-48 mt-11'>
+        <div className='grid grid-cols-2  gap-4  mt-11 ml-48 pdf'>
             <div className="card w-96 bg-base-100 shadow-xl">
   <div className="card-body">
     <h2 className="card-title"> The differences between uncontrolled and controlled components?</h2>
