@@ -10,6 +10,7 @@ const provider = new GoogleAuthProvider();
 const AuthProvider = ({children}) => {
     const [chefs, setChefs] = useState([]);
     const [loading,setLoading]=useState(true)
+    // const [error,setError] = useState('');
     const [user,setUser]=useState(null);
 
     useEffect(() => {

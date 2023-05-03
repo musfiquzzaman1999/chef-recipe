@@ -1,10 +1,12 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContex } from '../../provider/AuthProvider';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
+import Swal from 'sweetalert2';
 
 const Login = () => {
     const {signIn,googleSignIn,githubSignIn,user}= useContext(AuthContex)
+    const [error,setError]=useState('')
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -13,6 +15,7 @@ const Login = () => {
         return <Navigate to={from}></Navigate>
     }
     const handelLogin =(event)=>{
+        
         event.preventDefault();
         const form = event.target;
         
@@ -20,7 +23,10 @@ const Login = () => {
         const password=form.password.value;
         console.log(email,password)
         signIn(email,password)
+
+       
         .then((result) => {
+            setError('')
             // Signed in 
             const loggedUser = result.user;
             console.log(loggedUser)
@@ -31,6 +37,13 @@ const Login = () => {
             const errorCode = error.code;
             const errorMessage = error.message;
             console.log(errorMessage)
+            setError(error.message)
+            // Swal.fire({
+            //     icon: 'error',
+            //     title: 'Oops...',
+            //     text: errorMessage,
+                
+            //   })
           });
         
     }
@@ -123,6 +136,7 @@ const handelGithub=()=>{
     <div >
         <p >If you new this site plz <Link to='/ragister'><button className="btn btn-link"> ragister </button></Link></p>
     </div>
+    <p>{error}</p>
     
    
   </div>
