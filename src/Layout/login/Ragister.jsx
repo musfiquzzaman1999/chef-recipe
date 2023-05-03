@@ -1,10 +1,12 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { AuthContex } from '../../provider/AuthProvider';
 import { updateProfile } from 'firebase/auth';
 
 const Ragister = () => {
     const {createUser} = useContext(AuthContex)
+
+    const location =useLocation();
     
 
     const handelRagister =(event)=>{
@@ -21,6 +23,7 @@ const Ragister = () => {
             const createUser = result.user;
             console.log(createUser)
             updateUserData(result.user,name,photo)
+            location('/login')
             // ...
           })
           .catch((error) => {

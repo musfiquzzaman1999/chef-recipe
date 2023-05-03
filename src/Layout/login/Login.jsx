@@ -37,6 +37,8 @@ const Login = () => {
            
             const user = result.user;
             console.log(user)
+           
+            
             navigate(from, { replace: true })
             
           }).catch((error) => {
@@ -57,6 +59,7 @@ const handelGithub=()=>{
     
         // The signed-in user info.
         const user = result.user;
+        navigate(from, { replace: true })
         // IdP data available using getAdditionalUserInfo(result)
         // ...
       }).catch((error) => {

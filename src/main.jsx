@@ -48,13 +48,13 @@ const router = createBrowserRouter([
       {
         path: "/recipes",
         element: <Recipes></Recipes>,
-        loader:()=>fetch('http://localhost:5000/newRecipes')
+        loader:()=>fetch('https://chef-recipe-hunter-server-musfiquzzaman1999.vercel.app/newRecipes')
       },
      
       {
         path: "/chefs/:id",
         element:<PrivateRoute><Chefscart></Chefscart></PrivateRoute>,
-        loader:({params})=>fetch(`http://localhost:5000/chefs/${params.id}`)
+        loader:({params})=>fetch(`https://chef-recipe-hunter-server-musfiquzzaman1999.vercel.app/chefs/${params.id}`)
       },
     ],
   },

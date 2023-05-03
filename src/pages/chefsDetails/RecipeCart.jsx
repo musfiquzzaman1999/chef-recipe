@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaRegStar, FaStar } from 'react-icons/fa';
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 import Rating from 'react-rating';
 
 const RecipeCart = ({recipe}) => {
+  const [fev,setFev]=useState(true)
     console.log(recipe);
     const {details,name,elements,image,rating}=recipe;
+    const handelFev=()=>{
+      setFev(false)
+      return toast("Add this recipe on fevorite list!");
+    }
     return (
         <div className='mt-5'>
             <div className="card lg:card-side bg-base-100 shadow-xl w-1/2 mx-auto">
@@ -29,10 +36,11 @@ const RecipeCart = ({recipe}) => {
 />
     </div>
     <div className="card-actions justify-end">
-      <button className="btn btn-primary">Listen</button>
+      <button className="btn btn-primary" onClick={handelFev} disabled={!fev}>Favorite</button>
     </div>
   </div>
 </div>
+<ToastContainer />
         </div>
     );
 };
