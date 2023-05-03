@@ -2,6 +2,10 @@ import React from 'react';
 import { FaDownload } from 'react-icons/fa';
 
 const Blog = () => {
+    const [loader,setLoader]=(false)
+    const handelDownload=()=>{
+        setLoader(true)
+    }
     return (
         <div className='grid grid-cols-2  gap-4 ml-48 mt-11'>
             <div className="card w-96 bg-base-100 shadow-xl">
@@ -34,7 +38,10 @@ What is a custom hook, and why will you create a custom hook?</h2>
   </div>
 </div>
 <div className='ml-96'>
-    <button className='flex btn btn-outline btn-success mx-auto'><FaDownload className='text-2xl'></FaDownload>Download</button>
+    <button className='flex btn btn-outline btn-success mx-auto' onClick={handelDownload} disabled={!(loader===false)}><FaDownload className='text-2xl'></FaDownload>{
+        loader ? <span>downloading</span> : <span>download</span>
+    }
+    </button>
 </div>
         </div>
     );

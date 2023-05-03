@@ -8,7 +8,7 @@ const Header = () => {
            <div className='absolute top-32 left-0 text-white text-center flex flex-col justify-center items-center h-full w-full'>
             <h1 className='text-5xl'>Cooking never got any</h1>
             <h1 className='text-5xl text-green-600'>Easier</h1>
-            <p className='mt-5 text-lg'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat voluptatem eligendi <br /> perferendis provident commodi beatae recusandae modi necessitatibus, at deserunt vel aut perspiciatis molestiae neque ab similique error, nemo sapiente.</p>
+            <p className='mt-5 text-lg'>We believe that everyone should be able to enjoy delicious, homemade meals without spending hours in the kitchen or breaking the bank. <br /> That's why we offer easy-to-follow recipes and cooking tips that anyone can master.</p>
            </div>
         </div>
     );

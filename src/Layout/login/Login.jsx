@@ -1,13 +1,17 @@
 import React, { useContext } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContex } from '../../provider/AuthProvider';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 
 const Login = () => {
-    const {signIn,googleSignIn,githubSignIn}= useContext(AuthContex)
+    const {signIn,googleSignIn,githubSignIn,user}= useContext(AuthContex)
     const navigate = useNavigate();
     const location = useLocation();
+
     const from = location.state?.from?.pathname || "/";
+    if(user?.uid){
+        return <Navigate to={from}></Navigate>
+    }
     const handelLogin =(event)=>{
         event.preventDefault();
         const form = event.target;
@@ -20,7 +24,7 @@ const Login = () => {
             // Signed in 
             const loggedUser = result.user;
             console.log(loggedUser)
-            navigate(from, { replace: true })
+            // navigate(from, { replace: true })
             // ...
           })
           .catch((error) => {
@@ -39,7 +43,7 @@ const Login = () => {
             console.log(user)
            
             
-            navigate(from, { replace: true })
+            // navigate(from, { replace: true })
             
           }).catch((error) => {
            
@@ -59,7 +63,7 @@ const handelGithub=()=>{
     
         // The signed-in user info.
         const user = result.user;
-        navigate(from, { replace: true })
+        // navigate(from, { replace: true })
         // IdP data available using getAdditionalUserInfo(result)
         // ...
       }).catch((error) => {
@@ -80,7 +84,7 @@ const handelGithub=()=>{
 <div className="hero-content flex-col lg:flex-row-reverse">
 <div className="text-center ">
   <h1 className="text-5xl font-bold">Login now!</h1>
-  <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+  <p className="py-6">Enter your email and password to access your account and start using all the features of our website</p>
   
 </div>
 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
@@ -107,7 +111,10 @@ const handelGithub=()=>{
     <div className='text-center'>
         <h1>Signin with Social Account</h1>
     </div>
-    <div className='flex mx-32 gap-3'> <FaGithub onClick={handelGithub} className='text-3xl' ></FaGithub> <FaGoogle onClick={handelGoogle} className='text-3xl'></FaGoogle></div>
+    <div className='flex mx-32 gap-3'>
+        <button> <FaGithub onClick={handelGithub} className='text-3xl' ></FaGithub></button> 
+        <button><FaGoogle onClick={handelGoogle} className='text-3xl'></FaGoogle></button>
+    </div>
    </div>
     
 
