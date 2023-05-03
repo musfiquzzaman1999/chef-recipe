@@ -132,7 +132,7 @@ const handelGithub=()=>{
         <p >If you new this site plz <Link to='/ragister'><button className="btn btn-link"> ragister </button></Link></p>
     </div>
     {
-       error && <p className='text-orange-800'>Plz provide valid information or password</p>
+       error && <p className='text-orange-800'>Plz provide valid email or password</p>
     }
     
    
