@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from '../pages/home/Navbar';
 
 import { Outlet } from 'react-router-dom';
-import Footer from '../footer/footer';
+import Footer from '../pages/footer/footer';
 
 const Main = () => {
     return (

@@ -13,7 +13,7 @@ import AuthProvider from './provider/AuthProvider.jsx';
 import Login from './Layout/login/Login.jsx';
 import Ragister from './Layout/login/Ragister.jsx';
 import PrivateRoute from './Layout/login/PrivateRoute.jsx';
-import Error from './pages/home/Error.jsx';
+import Error from './pages/error/Error.jsx';
 import Blog from './pages/blog/Blog.jsx';
 import About from './pages/about/about.jsx';
 // import Recipes from './pages/home/Recipes.jsx';
@@ -44,10 +44,7 @@ const router = createBrowserRouter([
         path: "/blog",
         element: <Blog></Blog>,
       },
-      {
-        path: "/about",
-        element: <About></About>,
-      },
+      
       {
         path: "/recipes",
         element: <Recipes></Recipes>,

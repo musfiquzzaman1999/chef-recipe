@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContex } from '../../provider/AuthProvider';
-import Active from './Active';
+import Active from './active/Active';
 
 
 
@@ -30,7 +30,7 @@ const Navbar = () => {
       <Link to='/'> <li><a>Home</a></li></Link>
       
       <Active to='/blog'> <li><a>Blog</a></li></Active>
-      <Active to='/about'> <li><a>About</a></li></Active>
+   
       <Active to='/recipes'> <li><a>New Recipes</a></li></Active>
       </ul>
     </div>
@@ -41,7 +41,7 @@ const Navbar = () => {
      <Active to='/'> <li><a>Home</a></li></Active>
       
      <Active to='/blog'> <li><a>Blog</a></li></Active>
-     <Active to='/about'> <li><a>About</a></li></Active>
+   
      <Active to='/recipes'> <li><a>New Recipes</a></li></Active>
     </ul>
   </div>

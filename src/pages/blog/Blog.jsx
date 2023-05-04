@@ -50,7 +50,7 @@ What is a custom hook, and why will you create a custom hook?</h2>
     
   </div>
 </div>
-<div className='ml-96'>
+<div className='ml-96 mb-10'>
     <button className='flex btn btn-outline btn-success mx-auto' onClick={handelDownload} disabled={!(loader===false)}><FaDownload className='text-2xl'></FaDownload>{
         loader ? <span>downloading</span> : <span>download</span>
     }
