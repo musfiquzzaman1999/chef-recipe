@@ -1,7 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import bgv from '../../assets/pexels-cottonbro-studio-3296054-1366x720-50fps.mp4'
+import { AuthContex } from '../../provider/AuthProvider';
 
 const Header = () => {
+    const {loader} = useContext(AuthContex)
+    if(loader){
+
+        return <div className="text-center pt-20">
+            {/* using loader component */}
+        <h1>loading............................</h1>
+      </div>
+      
+    }
+   
     return (
         <div>
             {/* using background video */}

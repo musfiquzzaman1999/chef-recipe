@@ -18,12 +18,10 @@ import Blog from './pages/blog/Blog.jsx';
 import About from './pages/about/about.jsx';
 // import Recipes from './pages/home/Recipes.jsx';
 
-
-
 // using react lazy function
 const Home = React.lazy(() => import("./pages/home/Home.jsx"));
 const Recipes = React.lazy(() => import("./pages/home/Recipes.jsx"));
-const Chefscart = React.lazy(() => import("./pages/chefsDetails/chefscart.jsx"));
+const Chefscart = React.lazy(() => import("./pages/chefsDetails/Chefscart.jsx"));
 
 
 const router = createBrowserRouter([
