@@ -4,6 +4,8 @@ import React, { useState } from 'react';
 import { FaDownload } from 'react-icons/fa';
 
 const Blog = () => {
+
+  // react pdf download using html2canves
     const [loader,setLoader] = useState(false);
     const handelDownload=()=>{
         setLoader(true)
@@ -51,6 +53,7 @@ What is a custom hook, and why will you create a custom hook?</h2>
   </div>
 </div>
 <div className='ml-96 mb-10'>
+  {/* using ternary oparetor */}
     <button className='flex btn btn-outline btn-success mx-auto' onClick={handelDownload} disabled={!(loader===false)}><FaDownload className='text-2xl'></FaDownload>{
         loader ? <span>downloading</span> : <span>download</span>
     }

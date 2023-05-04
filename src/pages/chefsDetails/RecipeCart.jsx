@@ -5,9 +5,11 @@ import { ToastContainer, toast } from 'react-toastify';
 import Rating from 'react-rating';
 
 const RecipeCart = ({recipe}) => {
+
   const [fev,setFev]=useState(true)
     console.log(recipe);
     const {details,name,elements,image,rating}=recipe;
+    // fev button disable function
     const handelFev=()=>{
       setFev(false)
       return toast("Add this recipe on fevorite list!");
@@ -27,6 +29,7 @@ const RecipeCart = ({recipe}) => {
     <div>
       
       <span className=' mr-2'>{rating}</span>
+      {/* using react rating */}
       <Rating
   placeholderRating={rating}
   readonly

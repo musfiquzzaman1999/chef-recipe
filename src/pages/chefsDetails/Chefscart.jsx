@@ -7,6 +7,7 @@ import { FaHeart } from 'react-icons/fa';
 const Chefscart = () => {
     const {chefs}=useContext(AuthContex);
     console.log(chefs)
+    // seting loader
     if(!chefs){
         return <div>loading....</div>
     }
@@ -34,6 +35,7 @@ const Chefscart = () => {
   </div>
 </div>
               <div className='mt-16'>
+                {/* using map mathod for recive recipe data */}
               {
                 recipes.map(recipe=><RecipeCart key={recipe.id}recipe={recipe}></RecipeCart>)
                }

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
+// this is bonus section. show tranding racipes
+
 const cards = [
   {
     id: 1,

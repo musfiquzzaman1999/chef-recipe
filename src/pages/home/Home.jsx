@@ -10,10 +10,12 @@ import Extra from './Extra';
 
 const Home = () => {
     const {chefs,loader}=useContext(AuthContex);
+    // recive chefs and loader data from authcontex
 
     if(loader){
 
         return <div className="text-center">
+            {/* using loader component */}
         <div role="status">
           <svg
             aria-hidden="true"
@@ -43,6 +45,7 @@ const Home = () => {
             <div >
             <h1 className='text-center text-5xl mt-16 font-semibold  '>Meet our chefs</h1>
            <div className='grid md:grid-cols-3 lg:grid-cols-3 grid-cols-1'>
+            {/* using map for recive single chef data and give this data in chefinfo */}
            {chefs?.map(chef => (
                 <ChefInfo key={chef.id} chef={chef}>
                     

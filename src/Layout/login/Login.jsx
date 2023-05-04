@@ -6,6 +6,7 @@ import Swal from 'sweetalert2';
 
 const Login = () => {
     const {signIn,googleSignIn,githubSignIn,user}= useContext(AuthContex)
+    // recive data from auth context
     const [error,setError]=useState('')
     const navigate = useNavigate();
     const location = useLocation();
@@ -14,6 +15,7 @@ const Login = () => {
     if(user?.uid){
         return <Navigate to={from}></Navigate>
     }
+    // function form
     const handelLogin =(event)=>{
         
         event.preventDefault();
